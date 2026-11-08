@@ -59,21 +59,19 @@
 
 ## Installation
 
-Clone the repository and copy the theme into `~/.local/share/icons`:
+Clone the repository and run the install script. It copies the themes into
+`~/.local/share/icons` and, when `gtk-update-icon-cache` is installed, builds the icon
+cache GTK applications use to load icons faster:
 
 ```sh
 git clone https://github.com/kanagawa-community/icons
-mkdir -p ~/.local/share/icons
-cp -r icons/themes/Kanagawa-Kora-Wave ~/.local/share/icons/
+cd icons
+./install.sh
 ```
 
-For Dragon or Lotus, copy `Kanagawa-Kora-Dragon` or `Kanagawa-Kora-Lotus` instead.
-
-The theme ships without an icon cache. GTK applications load icons faster with one:
-
-```sh
-gtk-update-icon-cache -f ~/.local/share/icons/Kanagawa-Kora-Wave
-```
+`./install.sh` installs all three variants. Name the ones you want instead, for
+example `./install.sh dragon lotus`. Run it again after `git pull` to update.
+`./uninstall.sh` takes the same names and removes them.
 
 ## Usage
 
