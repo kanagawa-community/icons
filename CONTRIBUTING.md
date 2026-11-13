@@ -30,10 +30,12 @@ To read the colors from a script, use the machine-readable
 
 ## Working on this port
 
-`src/` is a copy of the `kora/` theme folder of the Kora icon theme from commit
+`upstream/` is a Git submodule of the Kora icon theme, pinned to commit
 [`e63a9e1`](https://github.com/bikass/kora/tree/e63a9e1b4f3b1f647b4cf9c64c1ece58ce45f75a).
-Leave it unchanged so it can be updated from upstream: replace it with the new upstream
-folder and regenerate.
+The generator reads its `kora/` folder. Clone with `--recurse-submodules`, or run
+`git submodule update --init` in an existing clone. Users who only install the theme do
+not need it. Do not change it. To update it, check out the new commit inside `upstream/`,
+commit the new pointer, and regenerate.
 
 `themes/` is generated. Do not edit it by hand. `scripts/generate.py` reads the shared
 `palette.json` from a sibling checkout of the
