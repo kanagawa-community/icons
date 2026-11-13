@@ -120,11 +120,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 GPL-3.0, like Kora. See [LICENSE](LICENSE). Each theme in `themes/` carries a copy of
 the license, since it is installed on its own.
 
-The icons in `src/` are the [Kora icon theme](https://github.com/bikass/kora) by bikass
+The icons in the `upstream/` submodule are the [Kora icon theme](https://github.com/bikass/kora) by bikass
 (GPL-3.0), unchanged from commit
 [`e63a9e1`](https://github.com/bikass/kora/tree/e63a9e1b4f3b1f647b4cf9c64c1ece58ce45f75a).
 
 Kanagawa Community contributors modified this work in November 2026 and later: the themes
-in `themes/` are the icons in `src/` with their colors replaced by `scripts/generate.py`.
+in `themes/` are the icons in `upstream/kora/` with their colors replaced by `scripts/generate.py`.
 Git history records every change. The application icons in `apps/` are Kora's,
 unchanged; the logos they show are trademarks of their owners.

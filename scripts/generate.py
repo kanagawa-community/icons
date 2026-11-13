@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build themes/Kanagawa-Kora-<Variant>/: the Kora icons (src/) recolored by palette role.
+"""Build themes/Kanagawa-Kora-<Variant>/: the Kora icons (upstream/kora/) recolored by palette role.
 
 Kora uses well over a thousand colors outside apps/, most of them gradient shades, so
 colors are not listed one by one. Each is sorted into a hue family (or grey), and its
@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "src"
+SRC = ROOT / "upstream" / "kora"
 VARIANTS = ["wave", "dragon", "lotus"]
 UNCHANGED = {"apps"}  # top-level folders copied as they are
 SKIP = {"icon-theme.cache", "create-new-icon-theme.cache.sh"}  # the cache would be stale
@@ -185,7 +185,7 @@ def build(name, recolor, out, dark):
     # Icons Kora lacks come from Breeze; GTK does not recolor them, so dark variants need Breeze Dark.
     index, n = re.subn(r"^Inherits=breeze,", f"Inherits={'breeze-dark' if dark else 'breeze'},", index, count=1, flags=re.M)
     if n != 1:
-        raise SystemExit("src/index.theme no longer inherits breeze first; update build()")
+        raise SystemExit("upstream/kora/index.theme no longer inherits breeze first; update build()")
     (out / "index.theme").write_text(index)
     # The theme is installed on its own, so it carries the GPL text with it.
     shutil.copy(ROOT / "LICENSE", out / "LICENSE")
